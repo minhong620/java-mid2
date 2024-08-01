@@ -1,12 +1,13 @@
-package generic.test.ex3;
+package generic.ex3;
 
-import generic.animal.Dog;
+import generic.animal.Animal;
 
-public class DogHospital {
+// 타입 매개변수 T를 Animal과 그 자식만 받을 수 있도록 제한을 둔다
+public class AnimalHospitalV3<T extends Animal> {
 
-    private Dog animal;
+    private T animal;
 
-    public void set(Dog animal) {
+    public void set(T animal) {
         this.animal = animal;
     }
 
@@ -16,7 +17,7 @@ public class DogHospital {
         animal.sound();
     }
 
-    public Dog bigger(Dog target) {
+    public T bigger(T target) {
         return animal.getSize() > target.getSize() ? animal : target;
     }
 }
